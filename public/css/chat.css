@@ -1,0 +1,56 @@
+html
+{
+  height: 100%;
+  width: 100%;
+}
+.aside-right{
+  z-index: 1000;
+  position: fixed;
+  width: 250px;
+  right: 0;
+  height: 95%;
+  margin-bottom: 20px;
+  overflow: auto;
+}
+
+
+@media screen and (min-width: 992px)
+{
+  .messages{
+    margin-bottom: 70px;
+    padding: 0;
+    width: 100%;
+    word-wrap:break-word;
+    margin-bottom: 100px;
+  }
+  .page-wrapper
+  {
+    margin-right: 250px;
+  }
+  .chat-area
+  {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    margin-right: 20px;
+    width: 83%;
+  }
+}
+@media screen and (max-width: 992px)
+{
+  .messages{
+    margin-bottom: 70px;
+    padding: 0;
+    width: 100%;
+    word-wrap:break-word;
+    margin-bottom: 150px;
+  }
+
+  .chat-area
+  {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}

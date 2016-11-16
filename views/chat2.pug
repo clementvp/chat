@@ -1,0 +1,38 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Chat
+    link(href='css/materialize.min.css', rel='stylesheet')
+    link(href='css/chat2.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet', type='text/css')
+  body
+    .navbar-fixed
+      nav.grey.lighten-4
+        .nav-wrapper
+          a.brand-logo(href='#!').black-text= name
+    .aside-right.hide-on-small-only.grey.lighten-4
+      ul.center.collection.users
+    .page-wrapper
+        .row
+          .col.s12
+            ul.messages
+        .chatarea.center
+          form(action="").col.s12.formulaire
+            .row
+              .input-field.col.s10
+                input#first_name(type='text')
+                label(for='first_name') Message
+              .input-field.col.s2
+                button(type="submit").waves-effect.waves-light.btn Send
+                  i.fa.fa-paper-plane.right(aria-hidden='true')
+  script(src='js/jquery.min.js')
+  script(src='js/materialize.min.js')
+  script(src="/socket.io/socket.io.js")
+  script.
+    var name = "!{name}";
+    var jwt = "!{jwt}";    
+  script(src="js/transmitter.js")

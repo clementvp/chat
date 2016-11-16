@@ -1,0 +1,20 @@
+{
+  "name": "serveur",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.13.0",
+    "jsonwebtoken": "^7.0.1",
+    "pug": "^2.0.0-beta3",
+    "socket.io": "^1.4.8",
+    "socketio-jwt": "^4.5.0"
+  }
+}
