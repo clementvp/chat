@@ -76,6 +76,8 @@ $('body').animate({scrollTop: height});
 
 $('.formulaire').submit(function(e){
   var msg = $('#first_name').val();
+  var regex = /(<([^>]+)>)/ig;
+  msg = msg.replace(regex,"");
   $(".messages").append("<li><p>"+name +": "+ msg+"</p> </li>");
   socket.emit('message',msg);
   $('#first_name').val("");

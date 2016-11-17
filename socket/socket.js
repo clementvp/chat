@@ -20,6 +20,8 @@ io.on('connection', socketioJwt.authorize({
     io.emit('update-liste', clients);
   });
   client.on('message',(msg)=>{
+    var regex = /(<([^>]+)>)/ig;
+    msg = msg.replace(regex,"");
     client.broadcast.emit("msg", clients[client.id]+": "+msg);
   });
 });
