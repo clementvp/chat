@@ -24,4 +24,11 @@ io.on('connection', socketioJwt.authorize({
     msg = msg.replace(regex,"");
     client.broadcast.emit("msg", clients[client.id]+": "+msg);
   });
+  client.on("writing",(username)=>{
+    client.broadcast.emit("someone-writing", username);
+  });
+  client.on("un-writing",(username)=>{
+    client.broadcast.emit("someone-un-writing", username);
+  })
+
 });
