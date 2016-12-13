@@ -40,7 +40,7 @@ socket.on('connect', function () {
       if(userWriting.indexOf(username) == -1){
         userWriting.push(username);
         if(userWriting.length == 1){
-         $(".writing").html(username + " is writing....");      
+          $(".writing").html(username + " is writing....");
         }else if(userWriting.length > 1 ){
           userWritingList = userWriting.join();
           $(".writing").html(userWriting + " are writing....");
@@ -50,26 +50,26 @@ socket.on('connect', function () {
     });
     socket.on("someone-un-writing", function (username) {
       if (userWriting.indexOf(username) != -1) {
-        userWriting.splice(userWriting.indexOf(username), 1);  
+        userWriting.splice(userWriting.indexOf(username), 1);
       }
       console.log("Array => ", userWriting);
       console.log("User => ", username);
-      
+
       userWritingList = userWriting.join();
       console.log("userWritingList = " + userWritingList)
-        if(userWriting.length >= 1){
-         $(".writing").html(userWritingList + " is writing....");      
-        }else{
-          $(".writing").html("");
-        }
+      if(userWriting.length >= 1){
+        $(".writing").html(userWritingList + " is writing....");
+      }else{
+        $(".writing").html("");
+      }
     });
     $("#first_name").on("keyup",function(){
       if($(this).val() == ""){
         socket.emit("un-writing",name);
       }else{
         socket.emit("writing",name);
-      }     
-        
+      }
+
     });
   }).emit('authenticate', {token: jwt}); //send the jwt
 });

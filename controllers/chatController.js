@@ -26,7 +26,7 @@ const chatAction = (req, res)=>{
 };
 
 const authAction = (req, res)=>{
-  const username = req.body.username;
+  var username = req.body.username;
   const password = req.body.password;
   if (!username || username === "" || password != passServer)
   {
@@ -36,6 +36,8 @@ const authAction = (req, res)=>{
   {
     if (Object.keys(clients).length === 0)
     {
+      var regex = /(<([^>]+)>)/ig;
+      username = username.replace(regex,"");
       var token = jwt.sign({ username: username }, passServer+'uyzeghsdskqsoiizeuffh');
       req.session.token = token;
       res.redirect('/chat');
@@ -50,6 +52,8 @@ const authAction = (req, res)=>{
         }
         else
         {
+          var regex = /(<([^>]+)>)/ig;
+          username = username.replace(regex,"");
           var token = jwt.sign({ username: username }, passServer+'uyzeghsdskqsoiizeuffh');
           req.session.token = token;
           return res.redirect('/chat');
