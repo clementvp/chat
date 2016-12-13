@@ -52,7 +52,7 @@ const authAction = (req, res)=>{
         {
           var token = jwt.sign({ username: username }, passServer+'uyzeghsdskqsoiizeuffh');
           req.session.token = token;
-          res.redirect('/chat');
+          return res.redirect('/chat');
         }
       }
     }
